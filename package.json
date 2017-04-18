@@ -4,13 +4,25 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --colors --config ./webpack.config.dev.js",
-    "build:prod": "webpack --config ./webpack.config.prod.js"
+    "build:prod": "webpack --config ./webpack.config.prod.js",
+    "test:unit": "karma start karma.conf.js",
+    "test:all": "karma start karma.conf.js **/*.spec.tsx **/*.spec.ts"
   },
   "devDependencies": {
+    "@types/enzyme": "2.8.7",
+    "@types/jasmine": "2.5.54",
     "@types/react": "16.0.5",
     "@types/react-dom": "15.5.4",
     "@types/react-redux": "5.0.7",
-    "ts-loader": "2.3.5",
+    "enzyme": "2.9.1",
+    "jasmine-core": "2.8.0",
+    "karma": "1.7.1",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-jasmine": "1.1.0",
+    "karma-mocha-reporter": "2.2.4",
+    "karma-webpack": "2.0.4",
+    "react-test-renderer": "16.0.0-beta.1",
+    "ts-loader": "2.3.6",
     "typescript": "2.5.2",
     "webpack": "3.5.6"
   },
