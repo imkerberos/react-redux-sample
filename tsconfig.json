@@ -4,6 +4,7 @@
     "noUnusedLocals" : true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "moduleResolution": "node",
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
