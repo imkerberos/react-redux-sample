@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Router } from 'react-router'
 import store from './store'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
-import {Routes} from './Routes'
+import { Routes } from './Routes'
 
 const history = createBrowserHistory()
 

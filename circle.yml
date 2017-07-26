@@ -9,6 +9,7 @@ dependencies:
 
   override:
   - npm install --no-save
+  - npm run lint:all
   - npm run build:prod
 
 test:

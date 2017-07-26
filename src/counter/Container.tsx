@@ -1,9 +1,9 @@
-import {Counter} from './Counter'
-import {connect, MapDispatchToPropsParam, MapStateToPropsParam} from 'react-redux'
-import {Dispatch} from 'redux'
-import {CounterState, decrementAmount, fetchRequestFinish, fetchRequestStart, incrementAmount} from './module'
-import {ReduxAction, ReduxState} from '../store'
-import {RouteComponentProps} from 'react-router'
+import { Counter } from './Counter'
+import { connect, MapDispatchToPropsParam, MapStateToPropsParam } from 'react-redux'
+import { Dispatch } from 'redux'
+import { CounterState, decrementAmount, fetchRequestFinish, fetchRequestStart, incrementAmount } from './module'
+import { ReduxAction, ReduxState } from '../store'
+import { RouteComponentProps } from 'react-router'
 
 export class ActionDispatcher {
   constructor(private dispatch: (action: ReduxAction) => void) {}
@@ -31,7 +31,7 @@ export class ActionDispatcher {
         headers: this.myHeaders
       })
 
-      if (response.status === 200) { //2xx
+      if (response.ok) { // 2xx
         const json: {amount: number} = await response.json()
         this.dispatch(incrementAmount(json.amount))
       } else {
@@ -45,13 +45,15 @@ export class ActionDispatcher {
   }
 }
 
-const mapStateToProps: MapStateToPropsParam<{value: CounterState, param?: string}, any> = (state: ReduxState, ownProps: RouteComponentProps<{myParams: string | undefined}>) => {
-  if (ownProps.match.params.myParams === undefined) {
-    return {value: state.counter}
+const mapStateToProps: MapStateToPropsParam<{value: CounterState, param?: string}, any> =
+  (state: ReduxState, ownProps: RouteComponentProps<{myParams: string | undefined}>) => {
+    if (ownProps.match.params.myParams === undefined) {
+      return {value: state.counter}
+    }
+    return {value: state.counter, param: ownProps.match.params.myParams}
   }
-  return {value: state.counter, param: ownProps.match.params.myParams}
-}
 
-const mapDispatchToProps: MapDispatchToPropsParam<{actions: ActionDispatcher}, {}> = (dispatch: Dispatch<ReduxAction>) => ({actions: new ActionDispatcher(dispatch)})
+const mapDispatchToProps: MapDispatchToPropsParam<{actions: ActionDispatcher}, {}> =
+  (dispatch: Dispatch<ReduxAction>) => ({actions: new ActionDispatcher(dispatch)})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)

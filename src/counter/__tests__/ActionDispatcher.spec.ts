@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock'
-import {incrementAmount, fetchRequestStart, fetchRequestFinish} from '../module'
-import {ActionDispatcher} from '../Container'
+import { incrementAmount, fetchRequestStart, fetchRequestFinish } from '../module'
+import { ActionDispatcher } from '../Container'
 
 describe('ActionDispatcher', () => {
 

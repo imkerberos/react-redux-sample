@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {CounterState} from './module'
-import {ActionDispatcher} from './Container'
+import { CounterState } from './module'
+import { ActionDispatcher } from './Container'
 
 interface Props {
   value: CounterState

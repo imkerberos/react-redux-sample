@@ -1,4 +1,4 @@
-import {Action} from 'redux'
+import { Action } from 'redux'
 
 enum ActionNames {
   INC = 'counter/increment',
@@ -49,7 +49,7 @@ export type CounterActions = IncrementAction
   | FetchRequestStartAction
   | FetchRequestFinishAction
 
-const initialState:CounterState = {
+const initialState: CounterState = {
   num: 0,
   loadingCount: 0
 }

@@ -1,5 +1,5 @@
-import reducer, {decrementAmount} from '../module'
-import {CounterState, incrementAmount} from '../module'
+import reducer, { decrementAmount } from '../module'
+import { CounterState, incrementAmount } from '../module'
 
 describe('counter/module', () => {
   it('INCREMENT', () => {
