@@ -1,13 +1,18 @@
 module.exports = {
   entry: './src/Index.tsx',
   output: {
-    filename: './dist/bundle.js'
+    filename: './public/bundle/min.js'
   },
 
   devtool: 'source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
+  },
+
+  externals: {
+    'react': 'React',
+    'react-dom' : 'ReactDOM',
   },
 
   module: {

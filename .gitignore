@@ -1,5 +1,4 @@
-dist/
 node_modules/
 .idea/
-typings/modulues
-typings/
+public/bundle/
+public/libs/

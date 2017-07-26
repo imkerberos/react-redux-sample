@@ -3,11 +3,16 @@ const webpack = require('webpack');
 module.exports = {
   entry: "./src/Index.tsx",
   output: {
-    filename: "./dist/bundle.js"
+    filename: './public/bundle/min.js'
   },
 
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
+  },
+
+  externals: {
+    'react': 'React',
+    'react-dom' : 'ReactDOM',
   },
 
   plugins: [
