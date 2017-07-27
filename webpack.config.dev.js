@@ -1,7 +1,12 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/Index.tsx',
   output: {
-    filename: './public/bundle/min.js'
+    path: path.join(__dirname, './'),
+    filename: 'public/bundle/min.[chunkhash].js',
+    publicPath: '/'
   },
 
   devtool: 'source-map',
@@ -24,5 +29,12 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'public/index.html',
+      template: 'index.template.ejs',
+      inject: 'body',
+    })
+  ],
 };

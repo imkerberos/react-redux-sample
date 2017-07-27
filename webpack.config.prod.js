@@ -1,9 +1,13 @@
 const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/Index.tsx",
   output: {
-    filename: './public/bundle/min.js'
+    path: path.join(__dirname, './'),
+    filename: 'public/bundle/min.[chunkhash].js',
+    publicPath: '/'
   },
 
   resolve: {
@@ -25,6 +29,11 @@ module.exports = {
       'process.env':{
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'public/index.html',
+      template: 'index.template.ejs',
+      inject: 'body',
     })
   ],
   module: {
