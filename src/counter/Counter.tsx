@@ -10,6 +10,10 @@ interface Props {
 
 export class Counter extends React.Component<Props, {}> {
 
+  componentDidMount() {
+    console.log("haha")
+  }
+
   render() {
     return (
       <div>
